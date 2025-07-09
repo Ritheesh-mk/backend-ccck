@@ -76,7 +76,9 @@ router.post('/', upload.single('image'), async (req, res) => {
     };
 
     if (req.file) {
-      productData.image = `http://localhost:5000/uploads/${req.file.filename}`;
+      // productData.image = `http://localhost:5000/uploads/${req.file.filename}`;
+productData.image = `uploads/${req.file.filename}`;
+
     }
 
     const product = new Product(productData);
@@ -115,7 +117,9 @@ router.put('/:id', upload.single('image'), async (req, res) => {
           fs.unlinkSync(oldImagePath);
         }
       }
-      updateData.image = `http://localhost:5000/uploads/${req.file.filename}`;
+      // updateData.image = `http://localhost:5000/uploads/${req.file.filename}`;
+      updateData.image = `uploads/${req.file.filename}`;
+
     }
 
     const updatedProduct = await Product.findByIdAndUpdate(
