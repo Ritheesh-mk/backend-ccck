@@ -114,7 +114,7 @@ router.put('/:id', upload.single('image'), async (req, res) => {
       if (product.image) {
         const oldImagePath = product.image.replace('http://localhost:5000/', '');
         if (fs.existsSync(oldImagePath)) {
-          fs.unlinkSync(oldImagePath);
+          fs.unlinkSync(oldImagePath);  
         }
       }
       // updateData.image = `http://localhost:5000/uploads/${req.file.filename}`;

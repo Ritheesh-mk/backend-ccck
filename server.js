@@ -21,7 +21,7 @@ app.use(express.json());
 
 // Serve uploaded images
 app.use('/uploads', express.static(uploadsDir));
-
+app.use('/uploads', express.static('uploads'));
 // Routes
 const blogRoutes = require('./routes/blogRoutes');
 const testimonialRoutes = require('./routes/testimonialRoutes');
